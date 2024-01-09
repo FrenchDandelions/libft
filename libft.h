@@ -13,7 +13,9 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "./dprintf/ft_dprintf.h"
 # include "./sprintf/sprintf.h"
+# include <fcntl.h>
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdint.h>
@@ -59,15 +61,17 @@ int					ft_tolower(int c);
 int					ft_strcmp(char *s1, char *s2);
 void				ft_putstrf_fd(char *s, int fd);
 void				ft_putnbr(int n);
-void				ft_unsigned_putnbr(unsigned int n, int fd);
-void				ft_putnbr_hexa_base(unsigned int n, char *base, int fd);
+int					ft_unsigned_putnbr(unsigned int n, int fd);
+int					ft_putnbr_hexa_base(unsigned int n, char *base, int fd);
 void				ft_putptr(unsigned long long p, char *base, int fd);
-void				ft_printptr(unsigned long long p, char *base, int fd);
-void				ft_print_percent(void);
+int					ft_printf_pointer(unsigned long long p, char *base, int fd);
+int					ft_print_percent(void);
 int					ft_printf_strlen(char *s);
 int					ft_printf_strlen(char *s);
+int					ft_printf_putnbr(int nb);
+int					ft_printf_string(char *str);
 int					ft_nbrlen(int n);
-void				ft_printchar(int c);
+int					ft_printchar(int c);
 int					ft_unsigned_len(unsigned int n);
 int					ft_hexa_len(unsigned int n, char *base);
 int					ft_ptr_len(unsigned long long p, char *base);

@@ -35,7 +35,6 @@ char	*ft_strtrim(const char *s1, const char *set)
 	if (!s1 || !set)
 		return (NULL);
 	start = 0;
-	end = 0;
 	while (s1[start] && ft_charset(s1[start], set))
 		(start)++;
 	end = ft_strlen(s1);

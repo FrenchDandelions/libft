@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_nl.c                                    :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thole <thole@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 12:08:10 by thole             #+#    #+#             */
-/*   Updated: 2023/12/18 12:08:13 by thole            ###   ########.fr       */
+/*   Created: 2024/01/09 13:22:30 by thole             #+#    #+#             */
+/*   Updated: 2024/01/09 13:22:31 by thole            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-char	*ft_strjoin_nl(char *s1, char *s2)
-{
-	char	*str;
-	size_t	i;
-	size_t	j;
+# include "../libft.h"
 
-	if (!s1 || !s2)
-		return (NULL);
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
-	if (!str)
-		return (free(str), NULL);
-	i = 0;
-	j = 0;
-	while (s1[i])
-		str[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		str[j++] = s2[i++];
-	str[j++] = '\n';
-	str[j] = 0;
-	free(s1);
-	return (str);
-}
+#endif

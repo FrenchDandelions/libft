@@ -10,60 +10,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sprintf.h"
+#include "ft_printf.h"
 
-size_t	ft_len(int nb)
+int	ft_ptr_len(unsigned long long p, char *base)
 {
-	int	len;
+	unsigned long long	i;
+	unsigned long long	base_len;
+	unsigned long long	n;
 
-	len = 0;
-	if (nb <= 0)
-		len++;
-	while (nb != 0)
+	n = p;
+	base_len = ft_strlen(base);
+	i = 2;
+	if (!p)
+		return (5);
+	while (n != 0)
 	{
-		len++;
-		nb = nb / 10;
+		i++;
+		n /= base_len;
 	}
-	return (len);
+	return (i);
 }
 
-char	*ft_sputstr(int nb, int len, char *str)
+void	ft_putptr(unsigned long long p, char *base, int fd)
 {
-	int	i;
+	unsigned long long	i;
+	unsigned long long	base_len;
 
-	i = len - 1;
-	if (nb == 0)
-		str[i] = '0';
-	if (nb == -2147483648)
-		return (ft_strcpy(str, "-2147483648"));
-	if (nb < 0)
+	base_len = ft_strlen(base);
+	i = p;
+	if (i < base_len)
+		ft_putchar_fd(base[i], fd);
+	else
 	{
-		nb *= -1;
-		str[0] = '-';
+		ft_putptr(i / base_len, base, fd);
+		ft_putptr(i % base_len, base, fd);
 	}
-	while (nb > 0)
-	{
-		str[i] = nb % 10 + '0';
-		nb = nb / 10;
-		i--;
-	}
-	return (str);
 }
 
-int	ft_sprintf_itoa(int n, char **s)
+int	ft_printf_pointer(unsigned long long p, char *base, int fd)
 {
-	char	*str;
-	size_t	nb;
-	size_t	len;
-
-	nb = n;
-	len = ft_len(nb);
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (free(str), 0);
-	nb = n;
-	str = ft_sputstr(nb, len, str);
-	str[len] = '\0';
-	*s = str;
-	return (ft_strlen(*s));
+	if (!p)
+		write(1, "(nil)", 5);
+	else
+	{
+		write(1, "0x", 2);
+		ft_putptr(p, base, fd);
+	}
+	return (ft_ptr_len(p, base));
 }

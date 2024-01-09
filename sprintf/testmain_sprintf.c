@@ -14,6 +14,12 @@
 
 int	main(void)
 {
+	char			buffer19[50];
+	char			buffer20[50];
+	char			*str;
+	void			*p;
+	void			*p2;
+	unsigned int	j;
 	char			buffer[50];
 	char			buffer2[50];
 	char			buffer3[50];
@@ -32,11 +38,6 @@ int	main(void)
 	char			buffer16[50];
 	char			buffer17[50];
 	char			buffer18[50];
-	char			*str;
-	void			*p;
-	void			*p2;
-	unsigned int	j;
-	int				i;
 
 	str = NULL;
 	j = 4294967295;
@@ -79,5 +80,9 @@ int	main(void)
 	printf("%s\n", buffer17);
 	printf("%d\n", sprintf(buffer18, "Je suis %p chat", p2));
 	printf("%s\n", buffer18);
+	printf("%d\n", ft_sprintf(buffer19, "Je suis 1%% chat"));
+	ft_printf("%s\n", buffer19);
+	printf("%d\n", sprintf(buffer20, "Je suis 2%% chat"));
+	ft_printf("%s\n", buffer20);
 	return (0);
 }*/

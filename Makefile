@@ -1,5 +1,7 @@
 NAME = libft.a
 SRC_FILES = ft_atoi.c \
+			ft_atol.c \
+			ft_atoll.c \
 	    	ft_bzero.c \
 			ft_calloc.c \
 	    	ft_isalnum.c \
@@ -36,11 +38,12 @@ SRC_FILES = ft_atoi.c \
 	    	ft_substr.c \
 			ft_tolower.c \
 	    	ft_toupper.c \
-			ft_printnbrs.c \
-			ft_putstrs.c \
-			ft_printhexa.c \
-			ft_printpointer.c \
-			ft_printf.c \
+			./printf/ft_printnbrs.c \
+			./printf/ft_putstrs.c \
+			./printf/ft_printhexa.c \
+			./printf/ft_printpointer.c \
+			./printf/ft_utils_printf.c \
+			./printf/ft_printf.c \
 			ft_realloc.c \
 			ft_lstnew_bonus.c \
 			ft_lstadd_front_bonus.c \
@@ -57,6 +60,12 @@ SRC_FILES = ft_atoi.c \
 			./sprintf/ft_sprintf_strdup.c \
 			./sprintf/ft_sprintf_uitoa.c \
 			./sprintf/ft_sprintf.c \
+			./dprintf/ft_dprintf.c \
+			./dprintf/ft_dprinthexa.c \
+			./dprintf/ft_dprintnbrs.c \
+			./dprintf/ft_dprintpointer.c \
+			./dprintf/ft_dputstrs.c \
+			./dprintf/ft_utils_dprintf.c \
 
 OBJECTS = $(patsubst %.c, %.o, $(SRC_FILES))
 INCLUDE = libft.h ./sprintf/sprintf.h

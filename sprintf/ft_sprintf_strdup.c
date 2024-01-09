@@ -36,13 +36,22 @@ int	ft_sprintf_strdup(const char *s, char **str)
 int	ft_sprintf_strdup2(char **str)
 {
 	char	*copy;
-	int		i;
 
-	i = 0;
 	copy = ft_calloc(7, sizeof(char));
 	if (!copy)
 		return (0);
 	copy = ft_strcpy(copy, "(null)");
 	*str = copy;
 	return (ft_strlen(*str));
+}
+
+int	ft_getpercent(int c, char **str)
+{
+	char	*dup;
+
+	(void)c;
+	dup = (char *)malloc(sizeof(char) * 2);
+	dup[0] = '%';
+	*str = dup;
+	return (1);
 }

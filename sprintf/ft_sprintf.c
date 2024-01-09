@@ -24,7 +24,7 @@ int	ft_getchar(int c, char **ch)
 {
 	char	*str;
 
-	str = malloc(sizeof(char *) * 1);
+	str = (char *)malloc(sizeof(char) * 1);
 	str[0] = c;
 	*ch = str;
 	return (1);
@@ -52,6 +52,8 @@ void	ft_get_str_switch(va_list args, char c, char **str, size_t *len)
 	else if (c == 'p')
 		len2 = ft_sprintf_pointer(va_arg(args, unsigned long long),
 				"0123456789abcdef", &(*str));
+	else if (c == '%')
+		len2 = ft_getpercent(va_arg(args, int), &(*str));
 	*len = len2;
 }
 
@@ -78,6 +80,7 @@ int	ft_sprintf(char *buffer, const char *str, ...)
 			ft_memcpy(buffer + p.pos, p.string, p.length);
 			p.pos += p.length;
 			free(p.string);
+			p.string = NULL;
 			p.i += 2;
 		}
 		else
