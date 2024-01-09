@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include "./dprintf/ft_dprintf.h"
+# include "./gnl/get_next_line.h"
 # include "./sprintf/sprintf.h"
 # include <fcntl.h>
 # include <stdarg.h>

@@ -66,9 +66,11 @@ SRC_FILES = ft_atoi.c \
 			./dprintf/ft_dprintpointer.c \
 			./dprintf/ft_dputstrs.c \
 			./dprintf/ft_utils_dprintf.c \
+			./gnl/get_next_line_utils.c \
+			./gnl/get_next_line.c \
 
 OBJECTS = $(patsubst %.c, %.o, $(SRC_FILES))
-INCLUDE = libft.h ./sprintf/sprintf.h
+INCLUDE = libft.h ./sprintf/sprintf.h ./printf/ft_printf.h ./dprintf/ft_dprintf.h ./gnl/get_next_line.h
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
