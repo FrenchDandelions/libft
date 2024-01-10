@@ -18,6 +18,7 @@
 # include "./sprintf/sprintf.h"
 # include <fcntl.h>
 # include <stdarg.h>
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdio.h>
@@ -77,6 +78,8 @@ int					ft_unsigned_len(unsigned int n);
 int					ft_hexa_len(unsigned int n, char *base);
 int					ft_ptr_len(unsigned long long p, char *base);
 int					ft_printf(const char *str, ...);
+long int			ft_atol(const char *nptr);
+long long int		ft_atoll(const char *nptr);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
