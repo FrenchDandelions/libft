@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thole <thole@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 13:22:30 by thole             #+#    #+#             */
-/*   Updated: 2024/01/09 13:22:31 by thole            ###   ########.fr       */
+/*   Created: 2024/03/19 16:56:12 by thole             #+#    #+#             */
+/*   Updated: 2024/03/19 16:56:15 by thole            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include "../libft.h"
-
-#endif
+void	ft_memdel(void *ptr)
+{
+	free(ptr);
+	ptr = NULL;
+}

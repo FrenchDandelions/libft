@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thole <thole@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 13:22:30 by thole             #+#    #+#             */
-/*   Updated: 2024/01/09 13:22:31 by thole            ###   ########.fr       */
+/*   Created: 2024/04/11 15:00:24 by thole             #+#    #+#             */
+/*   Updated: 2024/04/11 15:00:25 by thole            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include "../libft.h"
+void	ft_free_tab(char **tab)
+{
+	int	i;
 
-#endif
+	i = 0;
+	if (tab)
+	{
+		while (tab[i])
+		{
+			ft_memdel(tab[i]);
+			i++;
+		}
+		ft_memdel(tab);
+	}
+}

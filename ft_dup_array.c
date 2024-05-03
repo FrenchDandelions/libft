@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_dup_array.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thole <thole@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 13:22:30 by thole             #+#    #+#             */
-/*   Updated: 2024/01/09 13:22:31 by thole            ###   ########.fr       */
+/*   Created: 2024/04/16 19:51:18 by thole             #+#    #+#             */
+/*   Updated: 2024/04/16 19:51:19 by thole            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include "../libft.h"
+char	**ft_dup_array(char **array, int size)
+{
+	char	**dup;
+	int		i;
 
-#endif
+	dup = malloc(sizeof(char *) * size);
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (array[i])
+	{
+		dup[i] = ft_strdup(array[i]);
+		if (!dup[i])
+			return (ft_free_tab(dup), NULL);
+		i++;
+	}
+	dup[i] = NULL;
+	return (dup);
+}

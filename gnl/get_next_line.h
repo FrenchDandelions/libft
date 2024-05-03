@@ -15,20 +15,18 @@
 
 # include "../libft.h"
 # include <fcntl.h>
-# include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 100
 # endif
 
 char	*get_next_line(int fd);
-char	*ft_new_line(char *stock);
-char	*ft_delete_past_line(char *buffer_line);
-char	*ft_read(int fd, char *stock);
-char	*ft_free(char *s);
-char	*ft_freestrjoin(char *s1, char *s2);
+char	*ft_gnl_strchr(char *s, int c);
+size_t	ft_gnl_strlcpy(char *dest, char *src, size_t destsize);
+char	*get_next_line(int fd);
 
 #endif

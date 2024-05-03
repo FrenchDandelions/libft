@@ -4,6 +4,9 @@ SRC_FILES = ft_atoi.c \
 			ft_atoll.c \
 	    	ft_bzero.c \
 			ft_calloc.c \
+			ft_dup_array.c \
+			ft_free_tab.c \
+			ft_is_whitespaces.c \
 	    	ft_isalnum.c \
 	    	ft_isalpha.c \
 	    	ft_isascii.c \
@@ -13,12 +16,14 @@ SRC_FILES = ft_atoi.c \
 	    	ft_memchr.c \
 	    	ft_memcmp.c \
 	    	ft_memcpy.c \
+			ft_memdel.c \
 	    	ft_memmove.c \
 	    	ft_memset.c \
 	    	ft_putchar_fd.c \
 	    	ft_putendl_fd.c \
 	    	ft_putnbr_fd.c \
 	    	ft_putstr_fd.c \
+			ft_realloc_tab.c \
 	    	ft_split.c \
 	    	ft_strchr.c \
 			ft_strcmp.c \
@@ -69,19 +74,19 @@ SRC_FILES = ft_atoi.c \
 			./gnl/get_next_line_utils.c \
 			./gnl/get_next_line.c \
 
-OBJECTS = $(patsubst %.c, %.o, $(SRC_FILES))
+OBJECTS = $(SRC_FILES:.c=.o)
 INCLUDE = libft.h ./sprintf/sprintf.h ./printf/ft_printf.h ./dprintf/ft_dprintf.h ./gnl/get_next_line.h
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) $(INCLUDE) Makefile
 		ar rcs $(NAME) $(OBJECTS)
 
 
 %.o: %.c $(INCLUDE)
-		$(CC) $(FLAGS) -I ./ -c $< -o $@
+		$(CC) $(CFLAGS) -I ./ -c $< -o $@
 
 clean:
 	rm -f $(OBJECTS) $(BONUS_OBJECTS)
